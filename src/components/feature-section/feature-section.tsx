@@ -3,21 +3,8 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
 
 export function FeatureSection() {
-  useGSAP(() => {
-    gsap.from("#blue-box", {
-      x: 100,
-      y: -100,
-      yoyo: true,
-      rotation: 360,
-      duration: 2,
-      ease: "power1.inOut",
-    });
-  }, []);
-
   return (
     <section className="container bg-gray-700 grid gap-6 md:grid-cols-2 pb-8 pt-8 md:py-10">
       <div className="flex flex-col gap-4 rounded-lg p-6 bg-gray-500 md:p-12">
@@ -51,7 +38,6 @@ export function FeatureSection() {
             <Button
               asChild
               className="w-fit rounded-full hidden mt-4 md:mt-auto md:flex"
-              id="blue-box"
             >
               <Link href="/">
                 Cria loja grátis <ArrowRight />{" "}
