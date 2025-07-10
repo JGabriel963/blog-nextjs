@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import React from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { useRouter } from "next/router";
-import { cn } from "@/lib/utils";
-import { ActiveLink } from "../active-link";
-import { Logo } from "../logo";
+import { ActiveLink } from "../../active-link";
+import { Logo } from "../../logo";
 
 export function Header() {
   const router = useRouter();

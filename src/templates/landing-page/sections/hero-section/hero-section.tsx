@@ -1,15 +1,15 @@
 import { ArrowRight, Clock, Store } from "lucide-react";
 import React from "react";
-import { Button } from "../ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
     <section className="container relative flex items-center justify-center mt-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[20rem] md:h-[36rem] items-center">
         <div className="flex flex-col items-center justify-center gap-4 md:items-start lg:items-start">
-          <h1 id="title" className="text-gray-100 text-heading-hg">
+          <h1 id="title" className="text-gray-100 text-heading-hg font-sans">
             Venda seus produtos como afiliados em um único lugar
           </h1>
 
@@ -17,14 +17,14 @@ export function HeroSection() {
             <div>
               <div className="flex items-center gap-2">
                 <Clock className="text-cyan-100 size-4" />
-                <span className="text-gray-200">
+                <span className="text-gray-200 text-body-md">
                   Crie o seu site em mennos de 5 minutos
                 </span>
               </div>
 
               <div className="flex items-center gap-2">
                 <Store className="text-cyan-100 size-4" />
-                <span className="text-gray-200">
+                <span className="text-gray-200 text-body-md">
                   Acompanhe e otimize seu negócio online
                 </span>
               </div>
