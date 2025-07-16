@@ -1,3 +1,4 @@
+import { Avatar } from "@/components/avatar";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -42,7 +43,7 @@ export function PostCard({
             alt={title}
             width={288}
             height={144}
-            className="w-full h-40 object-cover object-center rounded-t-[8px]"
+            className="w-full h-40 object-cover object-center rounded-[8px]"
           />
         </div>
 
@@ -58,21 +59,10 @@ export function PostCard({
 
           {/* Post Footer */}
           <div className="flex items-center gap-3 border-t border-gray-400 py-4">
-            <div className="relative size-5 md:size-6 overflow-hidden rounded-full border-blue-200 border-[1px]">
-              <Image
-                src={author.avatar}
-                alt=""
-                fill
-                className="object-cover rounded-md"
-              />
-            </div>
-
-            <span
-              className="text-body-sm text-gray-300
-            "
-            >
-              {author.name}
-            </span>
+            <Avatar.Container>
+              <Avatar.Image src={author.avatar} alt={author.name} size="xs" />
+              <Avatar.Title>{author.name}</Avatar.Title>
+            </Avatar.Container>
           </div>
         </div>
       </div>
