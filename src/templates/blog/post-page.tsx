@@ -7,32 +7,24 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
-import { useShare } from "@/hooks";
-import { allPosts } from "contentlayer/generated";
+import { Post } from "contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
+import { PostShare } from "./components/post-share";
 
-export default function PostPage() {
-  const router = useRouter();
-  const slug = router.query.slug as string;
-  const post = allPosts.find(
-    (post) => post.slug.toLowerCase() === slug.toLowerCase()
-  )!;
-  const postUrl = `https://site.set/blog/${slug}`;
+export type PostPageProps = {
+  post: Post;
+};
+
+export function PostPage({ post }: PostPageProps) {
+  const postUrl = `https://site.set/blog/${post.slug}`;
 
   const publishedDate = new Date(post?.date).toLocaleDateString("pt-BR");
-  const { shareButtons } = useShare({
-    url: postUrl,
-    title: post.title,
-    text: post.description,
-  });
 
   return (
-    <main className="mt-32 text-gray-100">
-      <div className="container space-y-12 px-4 md:px-8">
+    <main className="py-20 text-gray-100">
+      <div className="container space-y-8 px-4 md:px-8">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -88,29 +80,7 @@ export default function PostPage() {
             </div>
           </article>
 
-          <aside className="space-y-6">
-            <div className="rounded-lg bg-gray-700 px-4 md:px-6">
-              <h2 className="mb-4 text-heading-xs text-gray-100">
-                Compartilhar
-              </h2>
-
-              <div className="space-y-3">
-                {shareButtons.map((provider) => {
-                  return (
-                    <Button
-                      key={provider.provider}
-                      variant="outline"
-                      className="w-full justify-start gap-2"
-                      onClick={() => provider.action()}
-                    >
-                      {provider.icon}
-                      {provider.name}
-                    </Button>
-                  );
-                })}
-              </div>
-            </div>
-          </aside>
+          <PostShare url={postUrl} title={post.title} description={post.description} />
         </div>
       </div>
     </main>
