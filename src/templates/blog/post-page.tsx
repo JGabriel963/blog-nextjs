@@ -80,7 +80,7 @@ export function PostPage({ post }: PostPageProps) {
             </div>
           </article>
 
-          <PostShare url={postUrl} title={post.title} description={post.description} />
+          <PostShare url={postUrl} title={post?.title} description={post?.description} />
         </div>
       </div>
     </main>

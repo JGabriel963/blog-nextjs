@@ -1,5 +1,4 @@
 import {
-  CallToAction,
   CustomStorySection,
   FeatureSection,
   HeroSection,

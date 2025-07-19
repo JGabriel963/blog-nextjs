@@ -4,7 +4,7 @@ import { Search } from "@/components/search";
 import React from "react";
 import { PostCard } from "./components/post-card";
 import { PostGridCard } from "./components/post-grid-card";
-import { allPosts, Post } from "contentlayer/generated";
+import { Post } from "contentlayer/generated";
 import { Inbox } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
