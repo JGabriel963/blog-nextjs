@@ -63,8 +63,8 @@ export function PostPage({ post }: PostPageProps) {
               <Avatar.Container>
                 <Avatar.Image
                   size="sm"
-                  src={post?.author.avatar.trim()!}
-                  alt={post?.title!}
+                  src={post.author.avatar.trim()}
+                  alt={post.title ?? "Autor"}
                 />
                 <Avatar.Content>
                   <Avatar.Title> {post?.author.name} </Avatar.Title>
@@ -80,7 +80,11 @@ export function PostPage({ post }: PostPageProps) {
             </div>
           </article>
 
-          <PostShare url={postUrl} title={post?.title} description={post?.description} />
+          <PostShare
+            url={postUrl}
+            title={post?.title}
+            description={post?.description}
+          />
         </div>
       </div>
     </main>
